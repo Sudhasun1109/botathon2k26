@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botathon 2K26 — One-Day Hackathon | Dept. of CSE, ESEC</title>
+<meta name="description" content="Botathon 2K26 — a one-day hackathon by the Department of CSE, Erode Sengunthar Engineering College.">
+<meta name="keywords" content="Botathon 2K26, hackathon, Erode Sengunthar Engineering College, ESEC hackathon, CSE hackathon, open innovation hackathon">
+<link rel="canonical" href="botathon2k26.in">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Botathon 2K26 — One-Day Hackathon">
+<meta property="og:description" content="A one-day open-innovation hackathon hosted by the Department of CSE, Erode Sengunthar Engineering College.">
+<meta property="og:image" content="assets/college-crest.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Event","name":"Botathon 2K26","description":"A one-day open-innovation hackathon hosted by the Department of Computer Science and Engineering, Erode Sengunthar Engineering College.","startDate":"2026-10-09T01:00:00+05:30","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Erode Sengunthar Engineering College","address":{"@type":"PostalAddress","streetAddress":"Erode - Perundurai Road, Thudupathi, Perundurai","addressLocality":"Erode","addressRegion":"Tamil Nadu","postalCode":"638057","addressCountry":"IN"}},"organizer":{"@type":"Organization","name":"Department of Computer Science and Engineering, Erode Sengunthar Engineering College"},"offers":{"@type":"Offer","price":"350","priceCurrency":"INR","url":"https://docs.google.com/forms/d/e/1FAIpQLSeNbOO-lptCC8fg-GJQZ44Jxg0AipKVmCM-XTuL6nOryjtmZw/viewform"}}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#top" class="nav__brand">
+    <img src="assets/college-crest-small.png" alt="Erode Sengunthar Engineering College crest" class="nav__crest">
+    <span class="nav__name">ERODE SENGUNTHAR ENGINEERING COLLEGE</span>
+    <span class="nav__year">2K26</span>
+  </a>
+  <div class="nav__right">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNbOO-lptCC8fg-GJQZ44Jxg0AipKVmCM-XTuL6nOryjtmZw/viewform" target="_blank" rel="noopener" class="btn btn--gradient nav__register">REGISTER</a>
+    <button type="button" class="nav__burger" id="navBurger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about">About<span>01</span></a>
+  <a href="#guest">Guest of Honour<span>02</span></a>
+  <a href="#track">The Track<span>03</span></a>
+  <a href="#prizes">Prizes<span>04</span></a>
+  <a href="#timeline">Timeline<span>05</span></a>
+  <a href="#team">People<span>06</span></a>
+  <a href="#partners">Partners<span>07</span></a>
+  <a href="#venue">Venue<span>08</span></a>
+  <a href="#contact">Contact<span>09</span></a>
+  <a href="#rules">Rules<span>10</span></a>
+</div>
+
+<main id="top">
+
+  <header class="hero">
+    <video class="hero__video" src="assets/hero-bg.mp4" autoplay loop muted playsinline preload="auto"></video>
+    <div class="hero__fade"></div>
+    <div class="hero__content">
+      <div class="badge">
+        <span class="badge__dot"></span> ONE DAY HACKATHON · 01.10.2026
+      </div>
+      <h1 class="hero__word" id="heroWord" aria-label="BOTATHON"></h1>
+      <div class="hero__word hero__word--year" id="heroYear" aria-label="2K26"></div>
+      <div class="hero__ctas">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNbOO-lptCC8fg-GJQZ44Jxg0AipKVmCM-XTuL6nOryjtmZw/viewform" target="_blank" rel="noopener" class="btn btn--gradient">REGISTER NOW →</a>
+        <a href="#track" class="btn btn--outline">SEE THE TRACK</a>
+      </div>
+      <div class="fact-grid">
+        <div class="fact-grid__cell"><span class="fact-grid__label">DATE</span><span class="fact-grid__value">01 OCT 2026</span></div>
+        <div class="fact-grid__cell"><span class="fact-grid__label">DURATION</span><span class="fact-grid__value">ONE DAY</span></div>
+        <div class="fact-grid__cell"><span class="fact-grid__label">VENUE</span><span class="fact-grid__value">ESEC CONVENTION CENTER</span></div>
+        <div class="fact-grid__cell"><span class="fact-grid__label">TRACK</span><span class="fact-grid__value">OPEN INNOVATION</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="countdown">
+    <div class="countdown__panel">
+      <div class="countdown__title"><span class="pulse-dot"></span> T-MINUS TO LAUNCH</div>
+      <div class="countdown__dials" id="countdownDials"></div>
+      <div class="countdown__status" id="countdownStatus">CLOCK RUNNING</div>
+    </div>
+  </section>
+
+  <section class="section section--video" id="about" data-bgvideo>
+    <video class="section__video" id="aboutVideo" src="assets/about-bg.mp4" loop muted playsinline preload="metadata"></video>
+    <div class="section__fade section__fade--soft"></div>
+    <div class="section__inner">
+      <h2 class="h2">Why join Botathon</h2>
+      <p class="lead">Botathon 2K26 is a one-day build sprint. Teams pick their own problem, ship something that runs, and present it to reviewers the same day. No prior hackathon experience needed — bring a problem you care about and a laptop.</p>
+      <div class="card-grid card-grid--4">
+        <div class="card"><span class="card__num">01</span><h3 class="card__title">Build</h3><p class="card__body">Twelve uninterrupted hours with mentors on the floor and nothing else on your calendar.</p></div>
+        <div class="card"><span class="card__num">02</span><h3 class="card__title">Innovate</h3><p class="card__body">One open track. No fixed problem statement — pick the problem you actually want to solve.</p></div>
+        <div class="card"><span class="card__num">03</span><h3 class="card__title">Collaborate</h3><p class="card__body">Teams of two to four. Cross-department and cross-college teams welcome.</p></div>
+        <div class="card"><span class="card__num">04</span><h3 class="card__title">Impact</h3><p class="card__body">Reviewers weigh relevance as heavily as code. Solve something real.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guest" id="guest">
+    <div class="guest__bg"></div>
+    <div class="guest__ring">
+      <img src="assets/guest-anand.jpeg" alt="Dr Anand Ponnusamy" class="guest__photo">
+    </div>
+    <h2 class="h2">Dr Anand Ponnusamy</h2>
+    <span class="guest__role">DIRECTOR – AI AGENTS</span>
+    <img src="assets/logo-microsoft.png" alt="Microsoft" class="guest__logo">
+    <p class="lead lead--center">Dr Anand Ponnusamy will inaugurate Botathon 2K26 as the guest of honour.</p>
+  </section>
+
+  <section class="section section--video" id="track" data-bgvideo>
+    <video class="section__video" id="trackVideo" src="assets/tracks-bg.mp4" loop muted playsinline preload="metadata"></video>
+    <div class="section__fade"></div>
+    <div class="section__inner">
+      <h2 class="h2">Open innovation</h2>
+      <p class="lead">One track, no fixed problem statement. Bring a problem you care about, from any domain, and build a working solution for it in a day.</p>
+      <div class="panel-row">
+        <div class="panel"><span class="panel__label">THE BRIEF</span><p>Pick any real problem — on campus, in your city, in an industry you know — and build something that runs. There is no released problem statement to wait for; your first job is choosing a problem worth a day of work.</p></div>
+        <div class="panel"><span class="panel__label">WHAT YOU MUST SHIP</span><p>A working demo, not slides. Any language, framework or hardware is allowed. Pre-existing boilerplate is fine, a pre-built project is not, and every line you submit must be one you can explain.</p></div>
+        <div class="panel"><span class="panel__label">HOW IT IS JUDGED</span><p>Reviewers weigh the problem as heavily as the build: why it matters, who it helps, and how far you got in a day. State the problem in your first slide and show the working solution in the rest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--video" id="prizes" data-bgvideo>
+    <video class="section__video" id="prizesVideo" src="assets/prizes-bg.mp4" loop muted playsinline preload="metadata"></video>
+    <div class="section__fade"></div>
+    <div class="section__inner">
+      <h2 class="h2">Total prize pool</h2>
+      <div class="prize-total">₹30,000</div>
+      <div class="card-grid card-grid--3">
+        <div class="prize-card"><span class="prize-card__rank">01</span><span class="prize-card__title">First place</span><span class="prize-card__amount">₹15,000</span></div>
+        <div class="prize-card"><span class="prize-card__rank">02</span><span class="prize-card__title">Second place</span><span class="prize-card__amount">₹10,000</span></div>
+        <div class="prize-card"><span class="prize-card__rank">03</span><span class="prize-card__title">Third place</span><span class="prize-card__amount">₹5,000</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--video" id="timeline" data-bgvideo>
+    <video class="section__video" id="timelineVideo" src="assets/timeline-bg.mp4" loop muted playsinline preload="metadata"></video>
+    <div class="section__fade section__fade--strong"></div>
+    <div class="section__inner">
+      <h2 class="h2">One day, mapped</h2>
+      <div class="zigzag" id="zigzag">
+        <div class="zigzag__spine"><div class="zigzag__fill" id="zigzagFill"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="community" id="community" data-bgvideo>
+    <video class="community__video" id="communityVideo" src="assets/community-bg.mp4" loop muted playsinline preload="metadata"></video>
+    <div class="community__scan" id="communityScan"></div>
+    <div class="community__fade"></div>
+
+    <section class="section" id="team">
+      <div class="section__inner">
+        <h2 class="h2">Organising team</h2>
+        <div class="orgchart">
+          <div class="org-card org-card--lead">
+            <div class="org-card__photo"><img src="assets/team-hod.jpeg" alt="Dr Vijay Franklin"></div>
+            <span class="org-card__name">Dr Vijay Franklin</span>
+            <span class="org-card__role">HEAD OF THE DEPARTMENT</span>
+            <span class="org-card__dept">Dept. of CSE</span>
+          </div>
+          <div class="org-branch"><span></span><span></span></div>
+          <div class="org-row">
+            <div class="org-card">
+              <div class="org-card__photo"><img src="assets/team-punitha.jpeg" alt="Punitha Gowri"></div>
+              <span class="org-card__name">Punitha Gowri</span>
+              <span class="org-card__role">EVENT COORDINATOR</span>
+              <span class="org-card__dept">Dept. of CSE</span>
+            </div>
+            <div class="org-card">
+              <div class="org-card__photo"><img src="assets/team-kowsalya.jpeg" alt="Kowsalya"></div>
+              <span class="org-card__name">Kowsalya</span>
+              <span class="org-card__role">EVENT COORDINATOR</span>
+              <span class="org-card__dept">Dept. of CSE</span>
+            </div>
+          </div>
+          <div class="org-branch"><span></span><span></span></div>
+          <div class="org-row">
+            <div class="org-card">
+              <div class="org-card__photo"><img src="assets/team-sathish.jpeg" alt="Sathish M"></div>
+              <span class="org-card__name">Sathish M</span>
+              <span class="org-card__role">STUDENT COORDINATOR</span>
+              <span class="org-card__dept">Dept. of CSE</span>
+            </div>
+            <div class="org-card">
+              <div class="org-card__photo"><img src="assets/team-jasper.jpeg" alt="Jasper Mahizhnan D"></div>
+              <span class="org-card__name">Jasper Mahizhnan D</span>
+              <span class="org-card__role">STUDENT COORDINATOR</span>
+              <span class="org-card__dept">Dept. of CSE</span>
+            </div>
+            <div class="org-card">
+              <div class="org-card__photo"><img src="assets/team-ranjith.jpeg" alt="Ranjith S"></div>
+              <span class="org-card__name">RANJITH S</span>
+              <span class="org-card__role">STUDENT COORDINATOR</span>
+              <span class="org-card__dept">Dept. of CSE</span>
+            </div>
+          </div>
+        </div>
+        <div class="subteam-row">
+          <button type="button" class="subteam-btn" data-open-modal="technical">
+            <span class="subteam-btn__glyph">&lt;/&gt;</span>
+            <span class="subteam-btn__label">TECHNICAL TEAM</span>
+            <span class="subteam-btn__cta">VIEW →</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="modalTechnical" hidden>
+      <div class="modal__scrim" data-close-modal></div>
+      <div class="modal__dialog">
+        <div class="modal__head">
+          <h3>TECHNICAL TEAM</h3>
+          <button type="button" class="modal__close" data-close-modal aria-label="Close">✕</button>
+        </div>
+        <div class="modal__grid">
+          <div class="member-card">
+            <div class="member-card__photo"><img src="assets/team-sudhasun.jpeg" alt="SUDHASUN T"><span class="member-card__tag">#dev01</span></div>
+            <div class="member-card__meta">
+              <span class="member-card__name">SUDHASUN T</span>
+              <a href="https://www.linkedin.com/in/sudhasunt/" target="_blank" rel="noopener" class="member-card__linkedin" aria-label="LinkedIn">in</a>
+            </div>
+            <span class="member-card__dept">Dept. of CSE</span>
+          </div>
+          <div class="member-card">
+            <div class="member-card__photo"><img src="assets/team-visweshwaran.jpeg" alt="VISWESHWARAN P"><span class="member-card__tag">#dev02</span></div>
+            <div class="member-card__meta">
+              <span class="member-card__name">VISWESHWARAN P</span>
+              <a href="https://www.linkedin.com/in/visweshwaran-p-409038372/" target="_blank" rel="noopener" class="member-card__linkedin" aria-label="LinkedIn">in</a>
+            </div>
+            <span class="member-card__dept">Dept. of CSE</span>
+          </div>
+          <div class="member-card">
+            <div class="member-card__photo"><img src="assets/team-saranraj.jpeg" alt="Saran raj S"><span class="member-card__tag">#dev03</span></div>
+            <div class="member-card__meta">
+              <span class="member-card__name">Saran raj S</span>
+              <a href="https://www.linkedin.com/in/saran-raj-a58b92351/" target="_blank" rel="noopener" class="member-card__linkedin" aria-label="LinkedIn">in</a>
+            </div>
+            <span class="member-card__dept">Dept. of CSE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="partners">
+      <div class="section__inner">
+        <h2 class="h2">Powering Botathon</h2>
+        <div class="sponsor-card">
+          <span class="sponsor-card__glow"></span>
+          <div class="sponsor-card__left">
+            <div class="sponsor-card__logo"><img src="assets/sponsor-upgradenow.jpeg" alt="UpgradeNow AI Technologies"></div>
+            <div class="sponsor-card__meta">
+              <span class="sponsor-card__label">SPONSOR</span>
+              <span class="sponsor-card__name">UpgradeNow AI Technologies</span>
+            </div>
+          </div>
+          <div class="sponsor-card__chip"><span class="pulse-dot"></span> PRIZE + INTERNSHIP OPPORTUNITY</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="venue">
+      <div class="section__inner section__inner--split">
+        <div>
+          <h2 class="h2 h2--sm">Erode Sengunthar Engineering College</h2>
+          <p class="lead">Thudupathi, Perundurai<br>Erode, Tamil Nadu, India</p>
+          <a href="https://www.google.com/maps/dir//Erode+Sengunthar+Engineering+College,+Erode+-+Perundurai+Road,+Post,+Palakarai,+Tamil+Nadu+638057/@11.1713155,77.2749958,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba9132f4f89e445:0x81f682bd38f8a702!2m2!1d77.550497!2d11.3130164?entry=ttu&g_ep=EgoyMDI2MDkwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn btn--gradient">GET DIRECTIONS</a>
+        </div>
+        <div class="fact-grid fact-grid--3">
+          <div class="fact-grid__cell"><span class="fact-grid__label">TRANSPORT</span><span class="fact-grid__value fact-grid__value--sm">College bus available up to 9:00 AM at Perundurai bus stand.</span></div>
+          <div class="fact-grid__cell"><span class="fact-grid__label">PARKING</span><span class="fact-grid__value fact-grid__value--sm">On-campus parking available.</span></div>
+          <div class="fact-grid__cell"><span class="fact-grid__label">FOOD</span><span class="fact-grid__value fact-grid__value--sm">Food provided by the college.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta">
+      <div class="cta__panel">
+        <h2 class="h2">Ready to build?</h2>
+        <p class="lead">Your idea is waiting.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNbOO-lptCC8fg-GJQZ44Jxg0AipKVmCM-XTuL6nOryjtmZw/viewform" target="_blank" rel="noopener" class="btn btn--gradient">REGISTER NOW →</a>
+        <div class="fact-grid">
+          <div class="fact-grid__cell"><span class="fact-grid__label">TEAM SIZE</span><span class="fact-grid__value">2–4</span></div>
+          <div class="fact-grid__cell"><span class="fact-grid__label">FEE</span><span class="fact-grid__value">₹350</span></div>
+          <div class="fact-grid__cell"><span class="fact-grid__label">ELIGIBILITY</span><span class="fact-grid__value">STUDENTS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section__inner section__inner--center">
+        <h2 class="h2">Reach the team</h2>
+        <div class="contact-list">
+          <div class="contact-row">
+            <div><span class="contact-row__role">FACULTY COORDINATOR</span><span class="contact-row__name">Punitha Gowri</span><span class="contact-row__detail">9944733342</span></div>
+            <a href="tel:+919944733342" class="btn btn--ghost">CALL</a>
+          </div>
+          <div class="contact-row">
+            <div><span class="contact-row__role">STUDENT COORDINATOR</span><span class="contact-row__name">Sathish M</span><span class="contact-row__detail">9677412394</span></div>
+            <a href="tel:+919677412394" class="btn btn--ghost">CALL</a>
+          </div>
+          <div class="contact-row">
+            <div><span class="contact-row__role">STUDENT COORDINATOR</span><span class="contact-row__name">Jasper Mahizhnan D</span><span class="contact-row__detail">7603852787</span></div>
+            <a href="tel:+917603852787" class="btn btn--ghost">CALL</a>
+          </div>
+          <div class="contact-row">
+            <div><span class="contact-row__role">STUDENT COORDINATOR</span><span class="contact-row__name">Ranjith S</span><span class="contact-row__detail">9790682400</span></div>
+            <a href="tel:+919790682400" class="btn btn--ghost">CALL</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="section__inner">
+        <h2 class="h2">Rules of engagement</h2>
+        <p class="lead">Final rules are issued by the organising committee. Anything marked TBC is confirmed before registration closes.</p>
+        <div class="accordion" id="accordion"></div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__col">
+      <div class="footer__brand"><img src="assets/college-crest-small.png" alt=""><span>BOTATHON <em>2K26</em></span></div>
+      <p>Erode Sengunthar Engineering College<br>Department of Computer Science and Engineering</p>
+    </div>
+    <div class="footer__col">
+      <span class="footer__heading">QUICK LINKS</span>
+      <a href="#about">About</a><a href="#track">The track</a><a href="#prizes">Prizes</a><a href="#timeline">Timeline</a><a href="#rules">Rules</a><a href="#contact">Contact</a>
+    </div>
+    <div class="footer__col">
+      <span class="footer__heading">FOLLOW</span>
+      <a href="https://www.instagram.com/botathon_2k26/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/school/esecindia/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@esectelevision" target="_blank" rel="noopener">YouTube</a>
+      <a href="mailto:botathon2k26@gmail.com">Email</a>
+    </div>
+    <div class="footer__col footer__col--end">© 2026 BOTATHON. ALL RIGHTS RESERVED.</div>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
