@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://botathon2k26.in/sitemap.xml

@@ -197,17 +197,17 @@ document.querySelectorAll('.modal__dialog').forEach((d) => d.addEventListener('c
 
 // ---------- Rules accordion ----------
 const RULES = [
-  ['Eligibility', 'Open to students of recognised institutions. Year restrictions: TBC by the organising committee.'],
+  ['Eligibility', 'Open to students of recognised institutions. Year restrictions will be finalised by the organising committee and communicated before registration closes.'],
   ['Team size', '2 to 4 members per team. Solo entries are not accepted.'],
   ['Registration', 'Registration is through the official form only. Fee: ₹350 per person. Confirmation is sent to the team lead.'],
   ['Technology', 'Any language, framework, or hardware. Pre-existing boilerplate is fine; a pre-built project is not.'],
-  ['Submission', 'Code plus a short demo, submitted before the deadline. Submission channel: TBC.'],
+  ['Submission', 'Code along with a short demo must be submitted before the deadline. The submission channel will be finalised and communicated by the organising committee before registration closes.'],
   ['Judging', "Panel review against the published criteria. Judges' decisions are final."],
   ['Code of conduct', 'Respect participants, volunteers, and the campus. Harassment of any kind ends your event.'],
   ['Plagiarism', 'Copied projects are disqualified. Open-source use must be credited.'],
   ['Intellectual property', 'Teams keep ownership of what they build.'],
   ['Disqualification', 'Plagiarism, misconduct, or breaking venue rules.'],
-  ['Food & accommodation', 'Meals during the event: TBC.'],
+  ['Food & accommodation', 'Meals and accommodation arrangements will be finalised and communicated by the organising committee before registration closes.'],
   ['What to bring', 'Laptop, charger, college ID, and any hardware your build needs.']
 ];
 const accordionEl = document.getElementById('accordion');
@@ -227,3 +227,648 @@ RULES.forEach(([title, body]) => {
   });
   accordionEl.appendChild(item);
 });
+
+/* =========================================
+   PREMIUM CURSOR SYSTEM
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Only run on mouse / trackpad devices
+  if (!window.matchMedia("(pointer: fine)").matches) {
+    return;
+  }
+
+  const cursor = document.querySelector(".custom-cursor");
+  const ring = document.querySelector(".custom-cursor-ring");
+
+  if (!cursor || !ring) return;
+
+
+  /* =========================================
+     CURSOR MOVEMENT
+  ========================================= */
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+
+  let ringX = mouseX;
+  let ringY = mouseY;
+
+  document.addEventListener("mousemove", (event) => {
+
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    // Small dot follows immediately
+    cursor.style.left = `${mouseX}px`;
+    cursor.style.top = `${mouseY}px`;
+
+  });
+
+
+  // Smooth outer ring
+  function animateCursor() {
+
+    ringX += (mouseX - ringX) * 0.14;
+    ringY += (mouseY - ringY) * 0.14;
+
+    ring.style.left = `${ringX}px`;
+    ring.style.top = `${ringY}px`;
+
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+
+
+  /* =========================================
+     HOVER EFFECT
+  ========================================= */
+
+  const interactiveElements = document.querySelectorAll(
+    "a, button, input, textarea, select, .magnetic"
+  );
+
+  interactiveElements.forEach((element) => {
+
+    element.addEventListener("mouseenter", () => {
+      ring.classList.add("is-hovering");
+    });
+
+    element.addEventListener("mouseleave", () => {
+      ring.classList.remove("is-hovering");
+    });
+
+  });
+
+
+  /* =========================================
+     CLICK EFFECT
+  ========================================= */
+
+  document.addEventListener("mousedown", () => {
+    ring.classList.add("is-clicking");
+  });
+
+  document.addEventListener("mouseup", () => {
+    ring.classList.remove("is-clicking");
+  });
+
+
+  /* =========================================
+     MAGNETIC BUTTON EFFECT
+  ========================================= */
+
+  const magneticElements = document.querySelectorAll(
+    ".magnetic, .hero__ctas a, .subteam-btn"
+  );
+
+  magneticElements.forEach((element) => {
+
+    element.addEventListener("mousemove", (event) => {
+
+      const rect = element.getBoundingClientRect();
+
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const moveX = (event.clientX - centerX) * 0.18;
+      const moveY = (event.clientY - centerY) * 0.18;
+
+      element.style.transform =
+        `translate(${moveX}px, ${moveY}px)`;
+
+    });
+
+
+    element.addEventListener("mouseleave", () => {
+
+      element.style.transform = "translate(0, 0)";
+
+    });
+
+  });
+
+
+  /* =========================================
+     SUBTLE CARD TILT
+  ========================================= */
+
+  const cards = document.querySelectorAll(
+    ".card, .prize-card, .org-card, .sponsor-card"
+  );
+
+  cards.forEach((card) => {
+
+    card.classList.add("cursor-tilt");
+
+    card.addEventListener("mousemove", (event) => {
+
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX =
+        ((y - centerY) / centerY) * -3;
+
+      const rotateY =
+        ((x - centerX) / centerX) * 3;
+
+      card.style.transform =
+        `perspective(800px)
+         rotateX(${rotateX}deg)
+         rotateY(${rotateY}deg)
+         translateY(-3px)`;
+
+    });
+
+
+    card.addEventListener("mouseleave", () => {
+
+      card.style.transform =
+        "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
+
+    });
+
+  });
+
+});
+/* ==========================================
+   NEON CROSSHAIR CURSOR
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Don't run on touch devices
+    if (!window.matchMedia("(pointer: fine)").matches) {
+        return;
+    }
+
+    const cursor = document.querySelector(".crosshair-cursor");
+
+    if (!cursor) return;
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    let currentX = mouseX;
+    let currentY = mouseY;
+
+
+    /* ==========================================
+       MOUSE POSITION
+    ========================================== */
+
+    document.addEventListener("mousemove", (event) => {
+
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+
+    });
+
+
+    /* ==========================================
+       SMOOTH CURSOR MOVEMENT
+    ========================================== */
+
+    function animateCrosshair() {
+
+        currentX += (mouseX - currentX) * 0.18;
+        currentY += (mouseY - currentY) * 0.18;
+
+        cursor.style.left = `${currentX}px`;
+        cursor.style.top = `${currentY}px`;
+
+        requestAnimationFrame(animateCrosshair);
+    }
+
+    animateCrosshair();
+
+
+    /* ==========================================
+       HOVER EFFECT
+    ========================================== */
+
+    const interactiveElements = document.querySelectorAll(
+        "a, button, input, textarea, select, .subteam-btn, .card, .prize-card, .org-card, .sponsor-card"
+    );
+
+    interactiveElements.forEach((element) => {
+
+        element.addEventListener("mouseenter", () => {
+
+            cursor.classList.add("active");
+
+        });
+
+        element.addEventListener("mouseleave", () => {
+
+            cursor.classList.remove("active");
+
+        });
+
+    });
+
+
+    /* ==========================================
+       CLICK EFFECT
+    ========================================== */
+
+    document.addEventListener("mousedown", () => {
+
+        cursor.classList.add("click");
+
+    });
+
+    document.addEventListener("mouseup", () => {
+
+        cursor.classList.remove("click");
+
+    });
+
+});
+/* ==========================================
+   PREMIUM GLOW ORB CURSOR
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (!window.matchMedia("(pointer: fine)").matches) {
+        return;
+    }
+
+    const cursor = document.querySelector(".premium-cursor");
+
+    if (!cursor) return;
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    let currentX = mouseX;
+    let currentY = mouseY;
+
+
+    /* Mouse position */
+
+    document.addEventListener("mousemove", (e) => {
+
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+    });
+
+
+    /* Smooth movement */
+
+    function moveCursor() {
+
+        currentX += (mouseX - currentX) * 0.18;
+        currentY += (mouseY - currentY) * 0.18;
+
+        cursor.style.left = `${currentX}px`;
+        cursor.style.top = `${currentY}px`;
+
+        requestAnimationFrame(moveCursor);
+    }
+
+    moveCursor();
+
+
+    /* Interactive elements */
+
+    const interactive = document.querySelectorAll(
+        "a, button, input, textarea, select, .card, .prize-card, .org-card, .sponsor-card, .subteam-btn"
+    );
+
+    interactive.forEach((element) => {
+
+        element.addEventListener("mouseenter", () => {
+            cursor.classList.add("hovering");
+        });
+
+        element.addEventListener("mouseleave", () => {
+            cursor.classList.remove("hovering");
+        });
+
+    });
+
+
+    /* Click animation */
+
+    document.addEventListener("mousedown", () => {
+        cursor.classList.add("clicking");
+    });
+
+    document.addEventListener("mouseup", () => {
+        cursor.classList.remove("clicking");
+    });
+
+});
+/* =========================================================
+   BOTATHON — ENERGY PARTICLE CURSOR
+   ========================================================= */
+
+(() => {
+
+    // Only enable on mouse / trackpad
+    if (!window.matchMedia("(pointer: fine)").matches) {
+        return;
+    }
+
+    /* ---------------------------------------------------------
+       CREATE CURSOR
+    --------------------------------------------------------- */
+
+    const cursor = document.createElement("div");
+    cursor.className = "energy-cursor";
+
+    cursor.innerHTML = `
+        <div class="energy-cursor__core"></div>
+        <div class="energy-cursor__aura"></div>
+        <div class="energy-cursor__ring"></div>
+    `;
+
+    document.body.appendChild(cursor);
+
+
+    /* ---------------------------------------------------------
+       CREATE PARTICLE CONTAINER
+    --------------------------------------------------------- */
+
+    const particleContainer = document.createElement("div");
+    particleContainer.className = "cursor-particles";
+
+    document.body.appendChild(particleContainer);
+
+
+    /* ---------------------------------------------------------
+       MOUSE POSITION
+    --------------------------------------------------------- */
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+
+    let lastX = mouseX;
+    let lastY = mouseY;
+
+    let speed = 0;
+
+
+    document.addEventListener("mousemove", (e) => {
+
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        const dx = mouseX - lastX;
+        const dy = mouseY - lastY;
+
+        speed = Math.min(Math.sqrt(dx * dx + dy * dy), 35);
+
+        lastX = mouseX;
+        lastY = mouseY;
+
+    }, { passive: true });
+
+
+    /* ---------------------------------------------------------
+       SMOOTH CURSOR
+    --------------------------------------------------------- */
+
+    function animateCursor() {
+
+        cursorX += (mouseX - cursorX) * 0.22;
+        cursorY += (mouseY - cursorY) * 0.22;
+
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+
+        speed *= 0.90;
+
+        requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+
+    /* ---------------------------------------------------------
+       PARTICLE CREATOR
+    --------------------------------------------------------- */
+
+    function createParticle() {
+
+        if (speed < 2) return;
+
+        const particle = document.createElement("span");
+
+        particle.className = "cursor-particle";
+
+        const angle = Math.random() * Math.PI * 2;
+
+        const distance =
+            10 + Math.random() * 25 + speed * 0.5;
+
+        const size =
+            2 + Math.random() * 4;
+
+        const startX =
+            cursorX + Math.cos(angle) * 8;
+
+        const startY =
+            cursorY + Math.sin(angle) * 8;
+
+        const endX =
+            cursorX + Math.cos(angle) * distance;
+
+        const endY =
+            cursorY + Math.sin(angle) * distance;
+
+        particle.style.left = `${startX}px`;
+        particle.style.top = `${startY}px`;
+
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+
+        particle.style.setProperty(
+            "--particle-x",
+            `${endX - startX}px`
+        );
+
+        particle.style.setProperty(
+            "--particle-y",
+            `${endY - startY}px`
+        );
+
+        particleContainer.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        }, 650);
+    }
+
+
+    /* ---------------------------------------------------------
+       PARTICLE LOOP
+    --------------------------------------------------------- */
+
+    let particleCounter = 0;
+
+    function particleLoop() {
+
+        particleCounter++;
+
+        if (speed > 3 && particleCounter % 2 === 0) {
+            createParticle();
+        }
+
+        requestAnimationFrame(particleLoop);
+    }
+
+    particleLoop();
+
+
+    /* ---------------------------------------------------------
+       HOVER EFFECT
+    --------------------------------------------------------- */
+
+    const interactiveElements = document.querySelectorAll(
+        "a, button, input, textarea, select, " +
+        ".card, .prize-card, .org-card, .sponsor-card, " +
+        ".subteam-btn, .accordion__trigger"
+    );
+
+
+    interactiveElements.forEach((element) => {
+
+        element.addEventListener("mouseenter", () => {
+
+            cursor.classList.add("is-hovering");
+
+        });
+
+        element.addEventListener("mouseleave", () => {
+
+            cursor.classList.remove("is-hovering");
+
+        });
+
+    });
+
+
+    /* ---------------------------------------------------------
+       MAGNETIC BUTTON EFFECT
+    --------------------------------------------------------- */
+
+    const magneticElements = document.querySelectorAll(
+        ".hero__ctas a, .subteam-btn, .nav__cta, button"
+    );
+
+
+    magneticElements.forEach((element) => {
+
+        element.addEventListener("mousemove", (e) => {
+
+            const rect = element.getBoundingClientRect();
+
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const moveX =
+                (e.clientX - centerX) * 0.12;
+
+            const moveY =
+                (e.clientY - centerY) * 0.12;
+
+            element.style.transform =
+                `translate(${moveX}px, ${moveY}px)`;
+
+        });
+
+
+        element.addEventListener("mouseleave", () => {
+
+            element.style.transform = "";
+
+        });
+
+    });
+
+
+    /* ---------------------------------------------------------
+       CLICK EXPLOSION
+    --------------------------------------------------------- */
+
+    document.addEventListener("mousedown", (e) => {
+
+        cursor.classList.add("is-clicking");
+
+        for (let i = 0; i < 14; i++) {
+
+            const particle = document.createElement("span");
+
+            particle.className =
+                "cursor-particle cursor-particle--burst";
+
+            const angle =
+                (Math.PI * 2 / 14) * i;
+
+            const distance =
+                35 + Math.random() * 45;
+
+            particle.style.left =
+                `${e.clientX}px`;
+
+            particle.style.top =
+                `${e.clientY}px`;
+
+            particle.style.setProperty(
+                "--burst-x",
+                `${Math.cos(angle) * distance}px`
+            );
+
+            particle.style.setProperty(
+                "--burst-y",
+                `${Math.sin(angle) * distance}px`
+            );
+
+            particleContainer.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 700);
+        }
+
+    });
+
+
+    document.addEventListener("mouseup", () => {
+
+        cursor.classList.remove("is-clicking");
+
+    });
+
+
+    /* ---------------------------------------------------------
+       HIDE WHEN MOUSE LEAVES WINDOW
+    --------------------------------------------------------- */
+
+    document.addEventListener("mouseleave", () => {
+
+        cursor.classList.add("is-hidden");
+
+    });
+
+    document.addEventListener("mouseenter", () => {
+
+        cursor.classList.remove("is-hidden");
+
+    });
+
+})();
