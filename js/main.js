@@ -199,7 +199,7 @@ document.querySelectorAll('.modal__dialog').forEach((d) => d.addEventListener('c
 const RULES = [
   ['Eligibility', 'Open to students of recognised institutions. Year restrictions will be finalised by the organising committee and communicated before registration closes.'],
   ['Team size', '2 to 4 members per team. Solo entries are not accepted.'],
-  ['Registration', 'Registration is through the official form only. Fee: ₹350 per person. Confirmation is sent to the team lead.'],
+  ['Registration', 'Registration is through the official form only. Fee: ₹250 per person. Confirmation is sent to the team lead.'],
   ['Technology', 'Any language, framework, or hardware. Pre-existing boilerplate is fine; a pre-built project is not.'],
   ['Submission', 'Code along with a short demo must be submitted before the deadline. The submission channel will be finalised and communicated by the organising committee before registration closes.'],
   ['Judging', "Panel review against the published criteria. Judges' decisions are final."],
